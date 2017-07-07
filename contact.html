@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Bank App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="checkLogin()">
+
+    <!--/**********Navigation Bar************/-->
+    <div class="navigation_div">
+        <ul class="nav">
+            <li> <a href="#"> 
+                 <img src="images/download.png" alt="logo pic" width="300px;">
+                 </a>
+            </li>
+            <li class="home">
+                <a href="index.html">  Home</a>
+            </li>
+            <li id="about">
+                <a href="about.html">  About</a>
+            </li>
+            <li id="contact" style="background-Color:red">
+                <a href="contact.html">  Contact</a>
+            </li>
+            <li id="donor_list">
+                <a href="donors.html"> Donors</a>
+            </li>
+            <li id="show_sign">Signup >> </li>
+            <li id="add_donor"> <a href="#">  <img id="logout_img" src="images/plus.png" alt="signup pic" ></a></li>
+        </ul>
+    </div>
+
+    <!--**********Cover pic************/-->
+    <header>
+        <a href="#"><img src="images/cover.jpg" alt="cover pic" class="cover_pic"></a>
+    </header>
+
+    <!--//**********Section Bar*********/-->
+    <div class="main">
+        <div id="sidebar">
+            <div class="side1">
+                <p class="tips" id="tip1">Donors' Speak
+                    <br> <span id="firstTip">"I donated blood to a needy patient undergoing open heart surgery at GKNM Hospital,
+                                             Coimbatore. I am happy to be associated with BharatBloodBank and thank them for giving me this opportunity.
+                                              <a href="javascript:void(0)" title="see more" id="more1" onclick="showTip(id)">>></a> </span>
+                </p>
+                <p class="tips" id="tip2">Blood Facts
+                    <br> <span id="secondTip">Blood is the life-maintaining fluid that circulates through the body's heart, arteries, veins and capillaries.
+                          <a href="javascript:void(0)" title="see more" id="more2" onclick="showTip(id)">>></a> </span>
+
+                </p>
+                <p class="tips" id="tip3">Tips on Blood Donation
+                    <br> <span id="thirdTip">Have a good meal at least 3 hours before donating blood .
+                          <a href="javascript:void(0)" title="see more" id="more3" onclick="showTip(id)">>></a> </span>
+
+                </p>
+            </div>
+            <div class="side2">
+                <h2>Related Links</h2>
+                <p>
+                    <a href="http://www.indianblooddonors.com" target="_blank">www.indianblooddonors.com</a>
+                    <a href="http://http://www.jeevan.org/" target="_blank">www.jeevan.org</a>
+                    <a href="http://http://www.blooddonations.org/" target="_blank">www.blooddonations.org</a>
+                    <a href="http://http://www.aabb.org/Pages/default.aspx" target="_blank">www.aabb.org</a>
+                </p>
+            </div>
+        </div>
+        <div id="sideTip">
+            <h1 id="tipHeading"></h1>
+            <p id="tipContent"></p>
+        </div>
+        <div id="section">
+            <div class="contact_content">
+                <div id="contactForm">
+                    <h1>Contact</h1>
+
+                    <p> <label for="name">Name</label><br><input type="text" id="name" placeholder="Please use lowerCase..">
+                        <p> <label for="email">Email</label><br><input type="email" id="email" placeholder="Please use lowerCase..">
+                        </p>
+                        <p> <label for="message">Message</label><br><textarea name="" id="message" cols="30" rows="8" placeholder="Type Your Message here.."></textarea>
+                        </p>
+                        <button>Send</button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <!--***********Signup Form************-->
+    <div id="signup" class="hidden">
+
+        <div id="form">
+            <img id="close_btn" src="images/close1.png" alt="close button" onClick="hide1()">
+            <p>
+                <h1>Signup</h1><br>Register Yourself as a Donor</p>
+
+            <p> &nbsp;&nbsp;&nbsp;<label for="donorName">Name</label><br>&nbsp;&nbsp;&nbsp;&nbsp; <input id="donorName" type="text"
+                    placeholder="Please use lowerCase.."></p>
+            <p> &nbsp;&nbsp;&nbsp;<label for="donorEmail">Email</label><br>&nbsp;&nbsp;&nbsp;&nbsp; <input id="donorEmail" type="email"
+                    placeholder="Please use lowerCase.."></p>
+            <p>&nbsp;&nbsp;&nbsp; <label for="donorPassword">Password</label><br>&nbsp;&nbsp;&nbsp;&nbsp; <input id="donorPassword"
+                    type="password" placeholder="Enter Your Password.."></p>
+            &nbsp;&nbsp;&nbsp;&nbsp;<label for="donorBloodGroup">Blood Group : </label> <select name="" id="donorBloodGroup">
+                    <option value="A+" selected>A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    </select>
+            <p class="line"><br>&nbsp;&nbsp;&nbsp;<label for="donorNumber">Number</label><br>&nbsp;&nbsp;&nbsp;&nbsp;<input id="donorNumber"
+                    type="text" placeholder="Enter your Number.."></p>
+            <p>&nbsp;&nbsp;&nbsp;<label for="donorCity">City</label><br>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="donorCity"
+                    placeholder="Please use lowerCase.."></p>
+            <button onclick="signup()">Signup</button>
+            <p class="centre" id="show_login"><a href="#">Already Signin.. ??</a></p>
+        </div>
+    </div>
+    <!--***********Login Form************-->
+    <div id="login" class="hidden">
+
+        <div id="form">
+            <img id="close_btn" src="images/close1.png" alt="close button" onclick="hide2();">
+            <p>
+                <h1>Login</h1><br>Come join us to help other</p>
+
+            <p>&nbsp;&nbsp;&nbsp; <label for="loginEmail">Email</label><br>&nbsp;&nbsp;&nbsp;&nbsp; <input id="loginEmail" type="text"
+                    placeholder="Please use lowerCase.."></p>
+            <p>&nbsp;&nbsp;&nbsp; <label for="loginPassword">Password</label><br>&nbsp;&nbsp;&nbsp;&nbsp; <input id="loginPassword"
+                    type="password" placeholder="Enter Your Password.."></p>
+
+            <button onclick="login()">Login</button>
+        </div>
+
+    </div>
+    <footer>
+        &copy; give Blood &nbsp; | Desinged by <a href="#">KhalidAyub</a>
+    </footer>
+
+    <script src="app.js">
+
+    </script>
+</body>
+
+</html>
